@@ -1,5 +1,4 @@
-/* Arquivo de Media Queries (Responsividade)
-*/
+/* responsive.css - BEAUTY ESTHETICA (Versão Final com Correção da Logo) */
 
 /* Força o menu desktop em telas grandes */
 @media (min-width: 1025px) {
@@ -11,54 +10,53 @@
     }
 }
 
-/* === CORREÇÃO GERAL DO HEADER (TABLET) ===
-   Este bloco garante que em 1024px, o menu de texto suma,
-   mas a barra de busca e o carrinho permaneçam visíveis.
+/* === TABLET (max-width: 1024px) ===
+   Ajuste para esconder menu de texto e manter ícones
 */
 @media (max-width: 1024px) {
     
-    /* 1. Esconde o menu de navegação de texto (Coleções, etc.) */
+    /* 1. Esconde o menu de navegação de texto */
     .nav-menu {
         display: none; 
     }
 
-    /* 2. Esconde o ícone de hambúrguer (pois ainda não estamos no mobile) */
+    /* 2. Esconde o ícone de hambúrguer (pois será controlado pelo header.css ou aparecerá só no mobile se preferir) */
+    /* Se quiser que o hambúrguer apareça já no tablet, mude para display: block */
     .header-mobile-toggle {
         display: none;
     }
     
-    /* 3. Garante que os ícones principais (Busca, Carrinho) fiquem visíveis */
+    /* 3. Ícones principais (Busca, Carrinho) visíveis */
     .header-main-icons {
         display: flex;
         align-items: center;
-        gap: 15px; /* Reduz o gap no tablet */
-        flex-grow: 1; /* Faz o container crescer */
-        justify-content: flex-end; /* Alinha à direita */
+        gap: 15px; 
+        flex-grow: 1; 
+        justify-content: flex-end; 
     }
 
-    /* 4. Ajusta o layout do header-content */
+    /* 4. Ajusta layout */
     .header-content {
         gap: 20px;
     }
     
-    /* 5. Ajusta os containers */
     .nav-left {
-        gap: 20px; /* Reduz o gap */
+        gap: 20px; 
         flex-shrink: 0;
     }
     .header-right {
-        flex-grow: 1; /* Faz o container da direita crescer */
-        justify-content: flex-end; /* Alinha os ícones à direita */
+        flex-grow: 1; 
+        justify-content: flex-end; 
     }
     
-    /* 6. Ajusta a barra de busca para ocupar o espaço */
+    /* 5. Barra de busca fluida */
     .search-box-container {
-        flex-grow: 1; /* Faz a busca crescer */
-        max-width: none; /* Remove o max-width do desktop */
+        flex-grow: 1; 
+        max-width: none; 
     }
     .search-input {
-        width: 100%; /* Faz o input ocupar 100% do container */
-        max-width: none; /* Remove o max-width do desktop */
+        width: 100%; 
+        max-width: none; 
     }
     .search-input:focus {
         max-width: none;
@@ -73,19 +71,17 @@
         padding: 0 10px; 
     }
     
-    /* Ajusta o grid de busca para 3 colunas em tablets */
+    /* Grids de 3 colunas */
     .search-page .search-results-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
-    /* Ajusta o grid da Love para 3 colunas em tablets */
     .love-page .love-results-container .search-results-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* === Vão Branco (Overflow) === */
+    /* Setas do slider */
     .partner-arrow {
-        font-size: 1.5em; /* Um pouco menor */
+        font-size: 1.5em; 
         opacity: 0.3;
         background-color: rgba(255, 255, 255, 0.5);
         border-radius: 50%;
@@ -97,66 +93,63 @@
     .product-page-header .partner-arrow {
          background-color: rgba(0, 0, 0, 0.05);
     }
-    
-    .partner-arrow.prev { 
-        left: 10px; /* De -55px para 10px */
-    } 
-    .partner-arrow.next { 
-        right: 10px; /* De -55px para 10px */
-    }
+    .partner-arrow.prev { left: 10px; } 
+    .partner-arrow.next { right: 10px; }
 }
 
 
-/* === Layout Mobile (Telefone) === */
+/* === MOBILE (max-width: 768px) === */
 @media (max-width: 768px) {
     .header-content {
         padding: 10px 0;
-        /* Restaura o layout de 3 colunas para mobile */
+        /* Layout Grid: Logo | Busca | Hambúrguer */
         display: grid;
-        grid-template-columns: auto 1fr auto; /* (Logo) (Busca) (Hambúrguer) */
-        gap: 10px; /* Diminui o gap no celular */
+        grid-template-columns: auto 1fr auto; 
+        gap: 10px; 
     }
     
-    /* 1. Esconde logos e ícones do Desktop/Tablet */
-    .logo-img.desktop-logo {
-        display: none; /* Esconde logo desktop */
-    }
-    .header-main-icons {
-        display: contents; /* Remove o container, liberando os filhos para o grid */
-    }
-    .header-main-icons .cart-icon-link {
-        display: none; /* Esconde o carrinho da barra (vai pro menu mobile) */
+    /* --- CORREÇÃO DA LOGO --- */
+    /* Removemos as regras que escondiam a logo. Agora ela é única. */
+    .logo-img {
+        display: block !important;
+        height: 22px; /* Altura ajustada para mobile */
+        width: auto;
     }
 
-    /* 2. Mostra logos e ícones do Mobile */
-    .logo-img.mobile-logo {
-        display: block; /* Mostra logo mobile */
-        height: 20px;
+    /* Posicionamento dos elementos no Grid */
+    .nav-left {
+        grid-column: 1 / 2; /* Coluna 1 */
+        gap: 0;
     }
+
+    .search-box-container {
+        display: block;
+        grid-column: 2 / 3; /* Coluna 2 (Meio) */
+        width: 100%;
+        max-width: none;
+    }
+
     .header-mobile-toggle {
-        display: block; /* Mostra ícone hambúrguer */
-        grid-column: 3 / 4; /* Hambúrguer na terceira coluna */
+        display: block !important; /* Garante que o hambúrguer apareça */
+        grid-column: 3 / 4; /* Coluna 3 */
     }
     .menu-toggle {
         display: block;
     }
 
-    /* 3. Posiciona a busca na grid */
-    .search-box-container {
-        display: block;
-        grid-column: 2 / 3; /* Busca na segunda coluna (central) */
-        width: 100%;
-        max-width: none;
+    /* Ícones do desktop somem da barra (vão para dentro do menu hambúrguer) */
+    .header-main-icons {
+        display: contents; 
     }
+    .header-main-icons .cart-icon-link {
+        display: none; 
+    }
+
     .search-input {
         max-width: none;
     }
 
-    .nav-left {
-        grid-column: 1 / 2; /* Logo na primeira coluna */
-        gap: 0;
-    }
-
+    /* Ajustes de Seções Gerais */
     .hero-banner-video {
         min-height: 50vh;
         padding-top: 60px;
@@ -192,21 +185,23 @@
         text-align: center; 
     }
     
-    /* Ajusta o grid de busca para 2 colunas em mobile */
+    /* Grids de 2 colunas no mobile */
     .search-page .search-results-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .love-page .love-results-container .search-results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Tipografia Mobile */
     .search-hero-banner h1 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     /* --- Responsivo da Página de Produto --- */
     .product-detail-grid {
-        grid-template-columns: 1fr; /* Coluna única em mobile */
+        grid-template-columns: 1fr; 
         gap: 40px;
-    }
-    .search-hero-banner h1 {
-        font-size: 1.8em;
     }
     .product-info-details h1 {
         font-size: 1.8em;
@@ -217,7 +212,7 @@
 
     /* --- Responsivo do Carrinho --- */
     .cart-content-wrapper {
-        grid-template-columns: 1fr; /* Coluna única em tablet/mobile */
+        grid-template-columns: 1fr; 
         gap: 50px;
     }
 
@@ -230,7 +225,7 @@
     }
 
     .product-info-cell {
-        flex-direction: column; /* Empilha imagem e nome */
+        flex-direction: column; 
         align-items: flex-start;
         gap: 10px;
     }
@@ -246,12 +241,7 @@
         gap: 30px;
     }
     .form-row-grid {
-        grid-template-columns: 1fr 1fr; /* 2 colunas em mobile */
+        grid-template-columns: 1fr 1fr; 
         gap: 15px;
-    }
-
-    /* --- Responsivo Página Love --- */
-    .love-page .love-results-container .search-results-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
