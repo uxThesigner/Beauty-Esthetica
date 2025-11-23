@@ -1,0 +1,233 @@
+/* header.css - BEAUTY ESTHETICA (Ajuste de Altura/Espessura) */
+
+/* --- 1. ESTRUTURA DO HEADER --- */
+.header {
+    background-color: rgba(69, 79, 74, 0.95); /* #454F4A com transparência */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; 
+    
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    
+    border-bottom: 1px solid rgba(220, 216, 206, 0.1); 
+    transition: background-color 0.3s;
+}
+
+.header a { text-decoration: none; }
+
+.header-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    
+    /* AJUSTE FEITO AQUI: Reduzido de 15px para 5px para afinar a barra */
+    padding: 5px 0; 
+    
+    width: 90%;
+    max-width: 1280px; 
+    margin: 0 auto;
+}
+
+/* --- 2. LOGO --- */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 40px; 
+    flex-shrink: 0;
+}
+
+.logo-img { 
+    height: 25px; /* Mantém o logo pequeno */
+    width: auto; 
+    display: block; 
+}
+.logo-img.mobile-logo { display: none; }
+
+/* --- 3. MENU DE NAVEGAÇÃO --- */
+.nav-menu {
+    display: none; 
+}
+.nav-menu > ul { 
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a,
+.nav-menu button.dropdown-toggle {
+    color: #DCD8CE; 
+    padding: 10px 20px; 
+    
+    font-size: 0.85em; 
+    font-weight: 300; /* Fino */
+    letter-spacing: 1.5px; 
+    text-transform: uppercase; 
+    
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    
+    transition: color 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Hover Dourado */
+.nav-menu a:hover,
+.nav-menu button.dropdown-toggle:hover {
+    color: #AA9478;
+}
+
+/* ITEM FIXO: AVALIAÇÃO GRATUITA */
+.nav-menu a[href*="exclusivas"] {
+    color: #AA9478 !important; /* Dourado fixo */
+    font-weight: 400; 
+}
+
+/* --- 4. DROPDOWN (Ajustado para a nova altura) --- */
+.nav-menu .nav-dropdown {
+    position: relative;
+    height: 100%; 
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; 
+    
+    position: absolute;
+    /* Garante que o menu comece logo após a barra, independente da altura */
+    top: 100%; 
+    left: 0;
+    
+    background-color: rgba(69, 79, 74, 0.95); 
+    backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(220, 216, 206, 0.1);
+    border-top: none; 
+    
+    min-width: 220px; 
+    padding: 10px 0; 
+    list-style: none;
+    z-index: 90;
+    transition: all 0.2s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto; 
+}
+
+.dropdown-menu li a {
+    color: #DCD8CE;
+    font-weight: 300; 
+    padding: 12px 25px; 
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    display: block;
+    white-space: nowrap; 
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(170, 148, 120, 0.1); 
+    color: #AA9478; 
+    padding-left: 30px; 
+}
+
+
+/* --- 5. ÍCONES E BUSCA --- */
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.header-main-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+
+.header-main-icons a { 
+    color: #DCD8CE; 
+    font-size: 1.1em;
+    transition: color 0.3s; 
+    display: flex;
+    align-items: center;
+}
+.header-main-icons a:hover {
+    color: #AA9478;
+}
+
+/* Barra de Busca */
+.search-box-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 200px; 
+}
+.search-input {
+    width: 100%; 
+    padding: 5px 0; 
+    border: none;
+    border-bottom: 1px solid rgba(220, 216, 206, 0.5); 
+    background: transparent;
+    color: #DCD8CE;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 0.9em; 
+    outline: none;
+}
+.search-input::placeholder { 
+    color: rgba(220, 216, 206, 0.4); 
+    font-weight: 300;
+}
+.search-input:focus { border-bottom-color: #AA9478; }
+
+
+/* --- 6. MOBILE --- */
+.menu-toggle { display: none; cursor: pointer; font-size: 1.5em; color: #DCD8CE; }
+
+.mobile-menu {
+    position: fixed !important; top: 0; right: 0;
+    width: 300px; height: 100vh;
+    background-color: #454F4A;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    z-index: 9999;
+    display: flex; flex-direction: column;
+}
+.mobile-menu.open { transform: translateX(0); }
+
+@media (min-width: 1025px) {
+    .mobile-menu { display: none !important; }
+    .nav-menu { display: block; }
+    .menu-toggle { display: none; }
+}
+
+@media (max-width: 1024px) {
+    .nav-menu { display: none; } 
+    .menu-toggle { display: block; }
+}
+
+.menu-header { padding: 20px; display: flex; justify-content: space-between; }
+.close-menu { color: #DCD8CE; font-size: 1.5em; cursor: pointer; }
+.mobile-nav { flex-grow: 1; overflow-y: auto; }
+.mobile-nav li a { 
+    padding: 15px 20px; display: block; 
+    color: #DCD8CE; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); 
+}
+.menu-footer { padding: 20px; text-align: center; }
+.menu-footer .social-icons a { color: #DCD8CE; font-size: 1.4em; margin: 0 10px; }

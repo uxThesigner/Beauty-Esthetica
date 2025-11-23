@@ -1,0 +1,577 @@
+/* components.css - BEAUTY ESTHETICA (Versão Final Completa) */
+
+/* Importando fontes: Poppins (Títulos) e WindSong (Assinatura Delicada) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=WindSong:wght@400;500&display=swap');
+
+/* =========================================
+   1. SLIDERS E CARROSSEIS (ESTRUTURA GERAL)
+   ========================================= */
+
+.product-slider-section,
+.partner-slider-section,
+.recent-works-section {
+    padding: 60px 0 80px 0; 
+    background-color: var(--color-background); 
+    overflow: hidden; 
+}
+
+.section-title,
+.product-slider-section h2,
+.partner-slider-section h2,
+.recent-works-section h2 {
+    text-align: center;
+    margin-bottom: 40px; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; 
+    font-size: 1.8em; 
+    color: var(--color-primary); 
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.slider-wrapper {
+    padding: 0; 
+    overflow: hidden;
+    position: relative;
+}
+
+.product-slider, 
+.partner-slider {
+    display: flex; 
+    overflow-x: scroll; 
+    gap: 20px; 
+    padding-bottom: 20px;
+    scroll-behavior: smooth;
+}
+.product-slider::-webkit-scrollbar, 
+.partner-slider::-webkit-scrollbar {
+    display: none; 
+}
+
+
+/* =========================================
+   2. CARD DE PRODUTO / SERVIÇO
+   ========================================= */
+
+.product-card-link {
+    text-decoration: none;
+    color: var(--color-text);
+    scroll-snap-align: start; 
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-radius: 6px;
+    height: 100%;
+    min-width: 220px; 
+}
+
+.product-card {
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.product-card-link:hover .product-card {
+    border-color: rgba(170, 148, 120, 0.3); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transform: translateY(-5px);
+}
+
+.product-image-container {
+    width: 100%; 
+    padding-bottom: 100%; 
+    height: 0;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-card-link:hover .product-image-container img {
+    transform: scale(1.05); 
+}
+
+.product-info {
+    padding: 15px; 
+    text-align: left; 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    font-size: 0.7em;
+    color: #999;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-meta .rating .fas {
+    color: var(--color-accent); 
+    margin-right: 4px;
+}
+
+.product-info h3 {
+    font-size: 0.95em; 
+    font-weight: 500; 
+    margin: 0 0 10px 0; 
+    height: 2.4em; 
+    overflow: hidden;
+    line-height: 1.3;
+    color: var(--color-primary);
+}
+
+.price-box { margin-top: auto; }
+.price-tag { font-size: 0.75em; font-weight: 400; color: #888; display: block; }
+.current-price { font-size: 1.1em; font-weight: 600; color: var(--color-highlight); }
+
+
+/* =========================================
+   3. CARD DE PARCEIRO (REDONDO)
+   ========================================= */
+
+.partner-slider-section { background-color: #fff; }
+
+.partner-slider-wrapper-centralized {
+    max-width: 1200px; 
+    margin: 0 auto;
+    position: relative; 
+    padding: 0 20px;
+}
+
+.partner-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff; 
+    border: 1px solid var(--color-border);
+    color: var(--color-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.partner-arrow.prev { left: -10px; } 
+.partner-arrow.next { right: -10px; }
+
+.partner-arrow:hover {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+.partner-card-link {
+    display: block;
+    text-decoration: none;
+    flex: 0 0 130px; 
+    min-width: 130px; 
+    margin-right: 20px; 
+    scroll-snap-align: start;
+}
+
+.partner-card {
+    background: transparent; 
+    border: none;
+    height: 100%; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.partner-image-container {
+    width: 110px;
+    height: 110px; 
+    border-radius: 50%; 
+    overflow: hidden;
+    border: 1px solid var(--color-border); 
+    margin: 0 auto 15px auto;
+    transition: all 0.3s;
+}
+
+.partner-image-container img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+    filter: grayscale(100%); 
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+.partner-card-link:hover .partner-image-container {
+    border-color: var(--color-accent); 
+    transform: translateY(-5px);
+}
+.partner-card-link:hover .partner-image-container img { filter: none; opacity: 1; }
+
+.partner-info h3 {
+    font-size: 0.8em; 
+    font-weight: 600; 
+    margin: 0;
+    color: var(--color-primary); 
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.partner-nickname {
+    font-size: 0.75em; 
+    color: #888; 
+    margin: 5px 0 0 0; 
+    font-weight: 300; 
+    text-align: center;
+}
+
+
+/* =========================================
+   4. HERO BANNER (VÍDEO)
+   ========================================= */
+
+.hero-banner-video {
+    min-height: 100vh; 
+    padding-top: 0; 
+    background-color: var(--color-primary); 
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1; 
+    object-fit: cover;
+    filter: brightness(0.85) contrast(1.1); 
+}
+
+.hero-content {
+    padding-top: 60px; 
+    position: relative;
+    z-index: 2; 
+    padding-bottom: 60px;
+    text-align: center;
+    max-width: 900px;
+}
+
+.hero-content h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300; 
+    font-size: 3.2em;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.1em;
+    font-weight: 300;
+    opacity: 0.95;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-text { opacity: 0; animation: fadeInUp 1.2s ease-out 0.3s forwards; }
+
+
+/* =========================================
+   5. MARQUEE / FAIXA FLUTUANTE (GLASS)
+   ========================================= */
+
+.offer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 15px 0; 
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.offer-bar-content {
+    display: inline-block;
+    padding-left: 0; 
+    animation: marquee 50s linear infinite; 
+    min-width: 100%; 
+}
+
+.offer-bar-content span {
+    margin-right: 100px; 
+    font-size: 0.8em; 
+    font-weight: 300; 
+    letter-spacing: 3px; 
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+@keyframes marquee { from { transform: translateX(0%); } to { transform: translateX(-100%); } }
+
+
+/* =========================================
+   6. SEÇÃO ANTES E DEPOIS (MAGIC REVEAL)
+   ========================================= */
+
+.comparison-grid {
+    display: grid;
+    /* 5 colunas no desktop */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.comparison-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4; /* Retrato */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.comparison-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-after { z-index: 1; }
+
+.img-before-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    overflow: hidden;
+    
+    /* Animação de "Scan" */
+    animation: revealScan 4s infinite alternate ease-in-out;
+    border-right: 2px solid rgba(255, 255, 255, 0.8); 
+    box-shadow: 5px 0 15px rgba(255,255,255,0.3); 
+}
+
+.img-before {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+}
+
+.comparison-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    z-index: 3;
+    text-align: center;
+}
+.comparison-label h3 {
+    font-size: 0.9em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+@keyframes revealScan {
+    0% { width: 0%; }
+    45% { width: 100%; }
+    55% { width: 100%; }
+    100% { width: 0%; }
+}
+
+/* Delay para efeito onda */
+.comparison-card:nth-child(1) .img-before-wrapper { animation-delay: 0s; }
+.comparison-card:nth-child(2) .img-before-wrapper { animation-delay: 0.5s; }
+.comparison-card:nth-child(3) .img-before-wrapper { animation-delay: 1s; }
+.comparison-card:nth-child(4) .img-before-wrapper { animation-delay: 1.5s; }
+.comparison-card:nth-child(5) .img-before-wrapper { animation-delay: 2s; }
+
+
+/* =========================================
+   7. BANNER INTERNO E GRADE DE BUSCA (SLIM)
+   ========================================= */
+
+.internal-banner-wrapper {
+    min-height: 15vh; 
+    max-height: 160px; 
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-primary);
+}
+
+.internal-banner-carousel, .internal-banner-item {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+.internal-banner-item {
+    background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease-in-out;
+}
+.internal-banner-item.active { opacity: 1; }
+
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
+.search-no-results {
+    text-align: center; font-size: 1.1em; font-weight: 300; color: #888; grid-column: 1 / -1; padding: 40px 0;
+}
+
+
+/* =========================================
+   8. SEÇÃO SOBRE A ESPECIALISTA
+   ========================================= */
+
+.about-pro-section {
+    padding: 100px 0;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-border); 
+}
+
+.about-pro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; 
+    gap: 60px;
+    align-items: center;
+}
+
+.about-pro-image {
+    position: relative;
+    width: 100%;
+    max-width: 450px; 
+    margin: 0 auto;
+}
+
+.about-pro-image img {
+    width: 100%;
+    aspect-ratio: 1/1; 
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 20px 20px 0px var(--color-marquee); 
+    transition: transform 0.3s ease;
+}
+
+.about-pro-image:hover img {
+    transform: translate(-5px, -5px); 
+}
+
+.about-pro-content h2 {
+    font-family: 'Poppins', serif;
+    font-weight: 400;
+    font-size: 2.2em;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.about-pro-content p {
+    font-size: 1.05em;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.about-signature {
+    font-family: 'WindSong', cursive; 
+    font-size: 3em;
+    color: var(--color-accent); 
+    display: block;
+    margin-top: 20px;
+    transform: none;
+    font-weight: 400;
+}
+
+/* Responsivo Mobile Geral */
+@media (max-width: 1024px) {
+    /* Ajuste para o grid de Resultados (Antes/Depois) */
+    .comparison-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+    }
+    .comparison-card {
+        flex: 0 0 260px;
+        scroll-snap-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajuste para a seção Sobre */
+    .about-pro-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .about-pro-content h2 {
+        font-size: 1.8em;
+    }
+    .about-signature {
+        font-size: 2.5em;
+        margin-top: 10px;
+    }
+    .about-pro-image {
+        max-width: 300px; 
+    }
+    .about-pro-image img {
+        box-shadow: 10px 10px 0px var(--color-marquee);
+    }
+}
