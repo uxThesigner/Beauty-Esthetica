@@ -388,6 +388,15 @@ function generateWhatsAppOrderLink(formData) {
 }
 
 function setupPaymentPage() {
+    // --- SEGURANÇA: Se o carrinho estiver vazio, chuta para a home ---
+    // Isso evita erros e garante que o cliente só veja essa tela se for comprar.
+    if (!cartItems || cartItems.length === 0) {
+        alert("Sua sacola está vazia! Você será redirecionado para nossos tratamentos.");
+        window.location.href = 'index.html';
+        return; // Para o código aqui, não deixa carregar o resto.
+    }
+    // ------------------------------------------------------------------
+
     const contactForm = document.getElementById('contact-info-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -401,9 +410,13 @@ function setupPaymentPage() {
             window.open(generateWhatsAppOrderLink(formData), '_blank');
         });
     }
+    
+    // Calcula os totais para exibir na tela
     const totals = calculateTotals();
     document.getElementById('co_subtotal').textContent = formatPrice(totals.subtotal);
     document.getElementById('co_total').textContent = formatPrice(totals.total);
+    
+    // Atualiza botão para texto mais chamativo com ícone do WhatsApp
     const btnConfirm = document.getElementById('confirm-payment-btn');
     if(btnConfirm) btnConfirm.innerHTML = '<i class="fab fa-whatsapp"></i> ENVIAR PEDIDO NO WHATSAPP';
 }
@@ -713,4 +726,5 @@ function setupCartListeners() {
     document.querySelectorAll('.cart-quantity-input').forEach(input => {
         input.addEventListener('input', (e) => updateCartItemQuantity(e.currentTarget.dataset.identifier, e.target.value));
     });
+
 }
