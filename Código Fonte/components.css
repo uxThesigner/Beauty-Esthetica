@@ -1,4 +1,4 @@
-/* components.css - BEAUTY ESTHETICA (Versão Final Completa) */
+/* components.css - BEAUTY ESTHETICA (Versão Final Revisada) */
 
 /* Importando fontes: Poppins (Títulos) e WindSong (Assinatura Delicada) */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=WindSong:wght@400;500&display=swap');
@@ -355,15 +355,15 @@
 
 
 /* =========================================
-   6. SEÇÃO ANTES E DEPOIS (MAGIC REVEAL)
+   6. SEÇÃO ANTES E DEPOIS (MAGIC REVEAL) - AJUSTADO
    ========================================= */
 
 .comparison-grid {
     display: grid;
-    /* 5 colunas no desktop */
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    max-width: 1400px;
+    /* AJUSTE: Mudado de 5 para 4 colunas */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* Aumentei um pouco o espaço entre elas */
+    max-width: 1200px; /* Reduzi um pouco a largura máxima para centralizar melhor os 4 */
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -398,10 +398,12 @@
     z-index: 2;
     overflow: hidden;
     
-    /* Animação de "Scan" */
-    animation: revealScan 4s infinite alternate ease-in-out;
-    border-right: 2px solid rgba(255, 255, 255, 0.8); 
-    box-shadow: 5px 0 15px rgba(255,255,255,0.3); 
+    /* AJUSTE: Tempo aumentado para 7s (mais lenta) */
+    animation: revealScan 7s infinite alternate ease-in-out;
+    
+    /* AJUSTE: Linha mais sutil (menos opacidade) */
+    border-right: 1px solid rgba(255, 255, 255, 0.4); 
+    box-shadow: 2px 0 10px rgba(255,255,255,0.15); 
 }
 
 .img-before {
@@ -435,12 +437,11 @@
     100% { width: 0%; }
 }
 
-/* Delay para efeito onda */
+/* Delay para efeito onda (Limitado a 4 itens) */
 .comparison-card:nth-child(1) .img-before-wrapper { animation-delay: 0s; }
 .comparison-card:nth-child(2) .img-before-wrapper { animation-delay: 0.5s; }
 .comparison-card:nth-child(3) .img-before-wrapper { animation-delay: 1s; }
 .comparison-card:nth-child(4) .img-before-wrapper { animation-delay: 1.5s; }
-.comparison-card:nth-child(5) .img-before-wrapper { animation-delay: 2s; }
 
 
 /* =========================================
