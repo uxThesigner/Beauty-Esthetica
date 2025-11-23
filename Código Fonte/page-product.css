@@ -198,3 +198,27 @@
     flex: 0 0 220px; /* Um pouco maior que o card da busca (5 colunas) */
     min-width: 220px;
 }
+
+/* Breadcrumb (Navegação no topo do produto) */
+.breadcrumb-nav {
+    font-size: 0.85em;
+    color: #888;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.breadcrumb-nav a {
+    text-decoration: none;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.breadcrumb-nav a:hover {
+    color: var(--color-accent); /* Fica dourado ao passar o mouse */
+}
+
+.breadcrumb-nav .current-item {
+    color: var(--color-primary); /* Cor escura para onde o usuário está agora */
+    font-weight: 600;
+}
