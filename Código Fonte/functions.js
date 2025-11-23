@@ -633,6 +633,7 @@ function setupHomePortfolio() {
     const container = document.querySelector('.recent-works-section .container');
     if (!container) return;
 
+    // Evita duplicar se já tiver sido criado
     if(container.querySelector('.comparison-grid')) return;
 
     const title = container.querySelector('h2');
@@ -644,12 +645,12 @@ function setupHomePortfolio() {
     container.appendChild(gridDiv);
 
     // Imagens devem estar em Imagens/Resultados/
+    // AJUSTE: Reduzido para 4 itens apenas (para casar com o CSS de 4 colunas)
     const RESULTS_DATA = [
         { title: "Micropigmentação", after: "result1.jpg", before: "before1.jpg" },
         { title: "Harmonização", after: "result2.jpg", before: "before2.jpg" },
         { title: "Bioestimulador", after: "result3.jpg", before: "before3.jpg" },
-        { title: "Preenchimento", after: "result4.jpg", before: "before4.jpg" },
-        { title: "Peeling Químico", after: "result5.jpg", before: "before5.jpg" }
+        { title: "Preenchimento", after: "result4.jpg", before: "before4.jpg" }
     ];
     
     gridDiv.innerHTML = RESULTS_DATA.map(item => `
@@ -728,3 +729,4 @@ function setupCartListeners() {
     });
 
 }
+
