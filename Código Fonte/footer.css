@@ -1,0 +1,122 @@
+/* footer.css - BEAUTY ESTHETICA */
+
+.footer {
+    /* Cor de fundo solicitada */
+    background-color: #454F4A; 
+    
+    color: #DCD8CE; /* Texto bege claro para contraste elegante */
+    padding: 60px 0 20px;
+    border-top: 1px solid rgba(220, 216, 206, 0.1); 
+}
+
+.footer .logo-img {
+    filter: none; 
+    height: 35px; /* Um pouco maior para leitura */
+    width: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr); 
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-column h4 {
+    margin-bottom: 20px;
+    font-weight: 400; 
+    font-size: 0.9em;
+    color: var(--color-accent); /* Dourado (#AA9478) */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-column p {
+    font-size: 0.9em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding-left: 0;
+}
+.footer-column ul a {
+    text-decoration: none;
+    color: #DCD8CE;
+    font-size: 0.9em;
+    display: block;
+    margin-bottom: 10px;
+    opacity: 0.7;
+    transition: all 0.2s;
+    font-weight: 300;
+}
+.footer-column ul a:hover {
+    opacity: 1;
+    color: var(--color-accent); 
+    padding-left: 5px; /* Efeito slide sutil */
+}
+
+.footer-column .social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 1.3em; 
+    margin-top: 10px;
+}
+.footer-column .social-icons a {
+    color: #DCD8CE;
+    opacity: 0.8;
+    transition: color 0.2s;
+}
+.footer-column .social-icons a:hover {
+    opacity: 1;
+    color: var(--color-accent); 
+}
+
+.payment-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 5px;
+}
+.payment-icon {
+    height: 25px;
+    width: auto;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 2px;
+    opacity: 0.7;
+}
+
+.footer .copyright {
+    text-align: center;
+    font-size: 0.8em;
+    padding: 30px 0 10px;
+    border-top: 1px solid rgba(220, 216, 206, 0.1); 
+    margin-top: 20px;
+    line-height: 1.8;
+    color: rgba(220, 216, 206, 0.5);
+    font-weight: 300;
+}
+.footer .copyright p {
+    margin: 5px 0; 
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    .footer-column .social-icons {
+        justify-content: center;
+    }
+    .footer .logo-img {
+        margin: 0 auto 20px auto;
+    }
+}

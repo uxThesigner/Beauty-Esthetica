@@ -1,0 +1,213 @@
+/* page-promocoes.css - CORREÇÃO DO BANNER (Idêntico à Busca) */
+
+.promocoes-page main {
+    background-color: #fff;
+}
+
+/* NOTA: Removi o estilo específico do banner (.internal-banner-wrapper)
+   para ele usar exatamente o mesmo do components.css (max-height: 160px),
+   ficando idêntico à página de Busca. */
+
+.internal-banner-item {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* --- 2. SEÇÃO DESTAQUE --- */
+.featured-combo-section {
+    padding: 60px 0;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.featured-wrapper {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.featured-image-col {
+    flex: 0 0 45%; 
+    max-width: 450px; 
+}
+
+.img-frame {
+    width: 100%;
+    height: 400px; 
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.featured-text-col {
+    flex: 1; 
+    text-align: left;
+}
+
+.featured-badge {
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.featured-text-col h2 {
+    font-family: 'Poppins', serif;
+    font-size: 2.5em;
+    color: var(--color-primary);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.featured-text-col p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.price-row {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.price-row .old { text-decoration: line-through; color: #ccc; font-size: 1.2em; }
+.price-row .new { color: var(--color-highlight); font-size: 2em; font-weight: 700; }
+
+
+/* --- 3. GRID DE CARDS --- */
+.promo-grid-section {
+    padding: 60px 0 80px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.section-header h2 {
+    font-family: 'Poppins', serif;
+    font-size: 2em;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.promo-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.promo-card-item {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.promo-card-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card-tag {
+    position: absolute;
+    top: 15px; left: 15px;
+    background: rgba(255,255,255,0.95);
+    color: var(--color-primary);
+    padding: 4px 12px;
+    font-size: 0.7em;
+    font-weight: 600;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card-img {
+    width: 100%;
+    height: 250px; 
+    background: #f9f9f9; 
+}
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+.card-body h3 { font-size: 1.1em; margin-bottom: 5px; color: var(--color-primary); }
+.card-body p { font-size: 0.9em; color: #888; margin-bottom: 15px; height: 2.4em; overflow: hidden;}
+.card-price { display: block; font-size: 1.4em; font-weight: 700; color: var(--color-accent); margin-bottom: 20px; }
+
+.full-btn { width: 100%; display: block; padding: 10px 0; font-size: 0.9em; }
+
+
+/* --- 4. FAIXA BENEFÍCIOS --- */
+.benefits-section {
+    background: #fff;
+    border-top: 1px solid var(--color-border);
+    padding: 40px 0;
+}
+.benefits-flex {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.benefit-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    font-size: 0.95em;
+}
+.benefit-box i { color: var(--color-accent); font-size: 1.4em; }
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+    .featured-wrapper {
+        flex-direction: column; 
+        text-align: center;
+        gap: 30px;
+    }
+    .featured-image-col {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 350px; 
+    }
+    .img-frame {
+        height: 350px; 
+    }
+    .featured-text-col {
+        text-align: center;
+    }
+    .price-row {
+        justify-content: center;
+    }
+}
