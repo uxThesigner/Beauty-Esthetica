@@ -3,15 +3,13 @@
         
         <div class="nav-left">
             <a href="index.html" class="logo">
-    <img src="Imagens/Banners/logo-beauty.svg" alt="Beauty Esthetica" class="logo-img">
-</a>
+                <img src="Imagens/Banners/logo-beauty.svg" alt="Beauty Esthetica" class="logo-img">
+            </a>
             
             <nav class="nav-menu">
                 <ul>
                     <li class="nav-dropdown"> 
-                        <button type="button" class="dropdown-toggle"> 
-                            TRATAMENTOS
-                        </button>
+                        <button type="button" class="dropdown-toggle">TRATAMENTOS</button>
                         <ul class="dropdown-menu"> 
                             <li><a href="busca.html?q=facial">Facial</a></li>
                             <li><a href="busca.html?q=corporal">Corporal</a></li>
@@ -21,15 +19,15 @@
                     </li>
                     
                     <li class="nav-dropdown">
-                        <button type="button" class="dropdown-toggle">
-                            HOME CARE
-                        </button>
+                        <button type="button" class="dropdown-toggle">HOME CARE</button>
                         <ul class="dropdown-menu">
                             <li><a href="busca.html?q=skincare">Skincare Facial</a></li>
                             <li><a href="busca.html?q=corpo">Cuidados Corporais</a></li>
                             <li><a href="promocoes.html">Kits & Presentes</a></li>
                         </ul>
                     </li>
+                    
+                    <li><a href="#static-partner-grid">PARCERIAS</a></li>
                     
                     <li>
                         <a href="avaliacao.html" style="color: #AA9478; font-weight: 500;">AVALIAÇÃO GRATUITA</a>
@@ -58,32 +56,45 @@
 </header>
 
 <div class="mobile-menu">
-<div class="menu-header">
-    <i class="fas fa-times close-menu"></i>
-    <a href="index.html">
-        <img src="Imagens/Banners/logo-beauty.svg" alt="Beauty Esthetica" class="logo-img-mobile">
-    </a>
-</div>
+    <div class="menu-header">
+        <i class="fas fa-times close-menu" style="margin-left: auto;"></i>
+    </div>
+    
     <nav class="mobile-nav">
         <ul>
-            <li><a href="#" class="mobile-dropdown-toggle">TRATAMENTOS</a>
-                <ul class="mobile-dropdown">
+            <li class="mobile-group">
+                <button type="button" class="mobile-dropdown-toggle">
+                    TRATAMENTOS <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="mobile-dropdown-content">
                     <li><a href="busca.html?q=facial">Facial</a></li>
                     <li><a href="busca.html?q=corporal">Corporal</a></li>
                     <li><a href="busca.html?q=massagem">Massagens & Spa</a></li>
                     <li><a href="busca.html?q=depilacao">Depilação a Laser</a></li>
                 </ul>
             </li>
-             <li><a href="#" class="mobile-dropdown-toggle">HOME CARE</a>
-                <ul class="mobile-dropdown">
+
+            <li class="mobile-group">
+                <button type="button" class="mobile-dropdown-toggle">
+                    HOME CARE <i class="fas fa-chevron-down"></i>
+                </button>
+                <ul class="mobile-dropdown-content">
                     <li><a href="busca.html?q=skincare">Skincare</a></li>
                     <li><a href="promocoes.html">Kits & Presentes</a></li>
                 </ul>
             </li>
-            
-            <li><a href="avaliacao.html" style="color: #AA9478;">AVALIAÇÃO GRATUITA</a></li>
 
-            <li class="cart-link-mobile"><a href="carrinho.html"><i class="fas fa-shopping-bag"></i> MINHA SACOLA</a></li>
+            <li class="mobile-group">
+                <a href="index.html#static-partner-grid" class="mobile-direct-link">PARCERIAS</a>
+            </li>
+            
+            <li class="mobile-group">
+                <a href="avaliacao.html" class="mobile-direct-link" style="color: #AA9478;">AVALIAÇÃO GRATUITA</a>
+            </li>
+
+            <li class="mobile-group cart-link-mobile">
+                <a href="carrinho.html" class="mobile-direct-link">MINHA SACOLA</a>
+            </li>
         </ul>
     </nav>
     
@@ -94,7 +105,4 @@
             <a href="#" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
-
 </div>
-
-
