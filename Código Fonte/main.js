@@ -39,22 +39,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- HOME PAGE ---
     // Detecta a Home pela presença do vídeo Hero
     if (document.querySelector('.hero-banner-video')) {
-        // Carrossel de Parceiros
+        
+        // Parceiros (Novo Grid Fixo de 5 itens)
         if (typeof setupPartnerContent === 'function') {
-            setupPartnerContent('partner-slider-container');
+            setupPartnerContent(); 
         }
-        // Carrossel de Resultados (Antes e Depois / Roleta)
+        
+        // Resultados Recentes (Magic Reveal - 4 colunas)
         if (typeof setupHomePortfolio === 'function') {
             setupHomePortfolio();
         }
     }
 
-    // --- PÁGINA DE COMBOS & PROMOÇÕES (Antiga Love) ---
+    // --- PÁGINA DE COMBOS & PROMOÇÕES ---
     if (body.classList.contains('promocoes-page')) {
         // Inicia o Banner Rotativo Slim
         setupInternalBannerCarousel('love-banner-carousel');
         
-        // Preenche automaticamente o Slider de Ofertas
+        // Preenche automaticamente o Slider de Ofertas (se houver placeholder no HTML)
         const promoSlider = document.getElementById('love-product-slider');
         if (promoSlider && typeof PRODUCTS !== 'undefined') {
             // Filtra produtos que tenham tags de oferta
@@ -68,9 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- PÁGINA DE AVALIAÇÃO (Antiga Exclusivas) ---
+    // --- PÁGINA DE AVALIAÇÃO (Anamnese Virtual) ---
     if (body.classList.contains('avaliacao-page')) {
-        // Inicia o Assistente Virtual
         if (typeof setupExclusivasPage === 'function') {
             setupExclusivasPage();
         }
