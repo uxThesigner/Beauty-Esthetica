@@ -2,7 +2,7 @@
 // BEAUTY ESTHETICA - LÓGICA PRINCIPAL (FUNCTIONS.JS)
 // ======================================================
 
-const WHATSAPP_NUMBER = '5581999545034'; 
+const WHATSAPP_NUMBER = '5541985162191'; 
 let cartItems = [];
 let appliedCoupon = null;
 
@@ -771,4 +771,5 @@ function setupCartListeners() {
         input.addEventListener('input', (e) => updateCartItemQuantity(e.currentTarget.dataset.identifier, e.target.value));
     });
 }
+
 
