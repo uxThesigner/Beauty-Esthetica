@@ -692,12 +692,49 @@ function setupMobileMenu() {
     const menu = document.querySelector('.mobile-menu');
     const toggle = document.querySelector('.menu-toggle');
     const close = document.querySelector('.close-menu');
+    
+    // Abrir e Fechar o Painel Lateral
     if(menu && toggle) {
         toggle.addEventListener('click', () => menu.classList.add('open'));
         close.addEventListener('click', () => menu.classList.remove('open'));
     }
-    document.querySelectorAll('.mobile-dropdown-toggle').forEach(t => {
-        t.addEventListener('click', (e) => { e.preventDefault(); t.nextElementSibling.classList.toggle('active'); });
+
+    // Lógica do Accordion (Sanfona)
+    const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+
+    dropdownToggles.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Verifica se este botão já está ativo
+            const isAlreadyActive = btn.classList.contains('active');
+
+            // 1. FECHA TODOS (Reseta tudo para o estado padrão)
+            dropdownToggles.forEach(otherBtn => {
+                otherBtn.classList.remove('active'); // Tira a cor dourada
+                const content = otherBtn.nextElementSibling;
+                if (content) {
+                    content.classList.remove('open'); // Esconde o sub-menu
+                }
+            });
+
+            // 2. SE NÃO ESTAVA ATIVO, ABRE ESTE (Se estava, ele já fechou no passo acima)
+            if (!isAlreadyActive) {
+                btn.classList.add('active'); // Coloca cor dourada
+                const content = btn.nextElementSibling;
+                if (content) {
+                    content.classList.add('open'); // Mostra o sub-menu deste
+                }
+            }
+        });
+    });
+
+    // Fecha o menu ao clicar em um link direto (ex: Parcerias, Avaliação)
+    const directLinks = document.querySelectorAll('.mobile-direct-link, .mobile-dropdown-content a');
+    directLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if(menu) menu.classList.remove('open');
+        });
     });
 }
 
@@ -734,3 +771,4 @@ function setupCartListeners() {
         input.addEventListener('input', (e) => updateCartItemQuantity(e.currentTarget.dataset.identifier, e.target.value));
     });
 }
+
