@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCart(); 
     
     // Carrega Header e Footer (Injeção de HTML)
-    // O setupHeaderLogic inicia os menus e busca assim que o HTML carregar
     loadComponent('header-placeholder', 'cabecalho.html', setupHeaderLogic);
     loadComponent('footer-placeholder', 'rodape.html'); 
     
@@ -36,9 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. ROTEAMENTO DE PÁGINAS (Lógica Específica por Tela)
     const body = document.body;
 
-    // --- HOME PAGE ---
-    // Detecta a Home pela presença do vídeo Hero
-    if (document.querySelector('.hero-banner-video')) {
+    // --- HOME PAGE (CORREÇÃO: Detecta Banner Estático OU Vídeo) ---
+    const hasHeroStatic = document.querySelector('.hero-banner-static');
+    const hasHeroVideo = document.querySelector('.hero-banner-video');
+
+    if (hasHeroStatic || hasHeroVideo) {
         
         // Parceiros (Novo Grid Fixo de 5 itens)
         if (typeof setupPartnerContent === 'function') {
@@ -56,10 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Inicia o Banner Rotativo Slim
         setupInternalBannerCarousel('love-banner-carousel');
         
-        // Preenche automaticamente o Slider de Ofertas (se houver placeholder no HTML)
+        // Preenche automaticamente o Slider de Ofertas
         const promoSlider = document.getElementById('love-product-slider');
         if (promoSlider && typeof PRODUCTS !== 'undefined') {
-            // Filtra produtos que tenham tags de oferta
             const promos = PRODUCTS.filter(p => p.tags.some(t => ['promo', 'kit', 'presente', 'home care'].includes(t)));
             
             if (promos.length > 0) {
