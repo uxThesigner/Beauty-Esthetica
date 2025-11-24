@@ -2,7 +2,7 @@
 // BEAUTY ESTHETICA - LÓGICA PRINCIPAL (FUNCTIONS.JS)
 // ======================================================
 
-const WHATSAPP_NUMBER = '5541985162191'; 
+const WHATSAPP_NUMBER = '5581999545034'; 
 let cartItems = [];
 let appliedCoupon = null;
 
@@ -287,7 +287,7 @@ function searchProducts(query) {
     });
 }
 
-// --- 5. PÁGINA DE PRODUTO ---
+// --- 5. PÁGINA DE PRODUTO (ATUALIZADA: EDITORIAL) ---
 
 function setupProductPage() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -299,6 +299,7 @@ function setupProductPage() {
     const isService = product.tags.includes('servico');
     document.title = `${product.name} | BEAUTY ESTHETICA`;
     
+    // Preenche dados básicos (Topo)
     document.getElementById('main-product-image').src = product.image;
     document.getElementById('product-name').textContent = product.name;
     document.getElementById('product-rating').innerHTML = `<i class="fas fa-star"></i> ${product.rating}`;
@@ -306,21 +307,46 @@ function setupProductPage() {
     document.getElementById('product-price').textContent = formatPrice(product.price);
     document.getElementById('product-material').textContent = product.material;
 
-    // Ajusta rótulos dinamicamente
-    const labelSize = document.querySelector('label[for="size-select"]');
-    const labelColor = document.querySelector('label[for="color-select"]');
-    const btnAdd = document.querySelector('.add-to-cart-btn');
-
-    if (isService) {
-        if(labelSize) labelSize.textContent = "Duração / Pacote:";
-        if(labelColor) labelColor.textContent = "Variação / Área:";
-        if(btnAdd) btnAdd.innerHTML = '<i class="fas fa-calendar-check"></i> AGENDAR SESSÃO';
-    } else {
-        if(labelSize) labelSize.textContent = "Volume / Tamanho:";
-        if(labelColor) labelColor.textContent = "Opção / Fragrância:";
-        if(btnAdd) btnAdd.innerHTML = '<i class="fas fa-shopping-bag"></i> COLOCAR NA SACOLA';
+    // --- NOVA LÓGICA DE DESCRIÇÃO (Abaixo) ---
+    // Preenche os textos vindos do products.js
+    if(document.getElementById('desc-content-main')) {
+        document.getElementById('desc-content-main').textContent = product.description || "Descrição detalhada em breve.";
+        document.getElementById('desc-content-usage').textContent = product.usage || "Consulte as instruções.";
+        document.getElementById('desc-content-care').textContent = product.care || "Siga a orientação profissional.";
+    
+        // Adapta Títulos e Ícones baseado se é Serviço ou Produto
+        if (isService) {
+            // SERVIÇO
+            document.getElementById('desc-heading-main').textContent = "Sobre o Tratamento";
+            
+            document.getElementById('desc-heading-usage').textContent = "Por que fazer?";
+            document.getElementById('icon-usage').className = "fas fa-heart"; // Ícone Coração
+            
+            document.getElementById('desc-heading-care').textContent = "Cuidados & Orientação";
+            document.getElementById('icon-care').className = "fas fa-user-md"; // Ícone Médico/Profissional
+            
+            // Ajusta botões de compra
+            document.querySelector('label[for="size-select"]').textContent = "Duração / Pacote:";
+            document.querySelector('label[for="color-select"]').textContent = "Variação / Área:";
+            document.querySelector('.add-to-cart-btn').innerHTML = '<i class="fas fa-calendar-check"></i> AGENDAR SESSÃO';
+        } else {
+            // PRODUTO
+            document.getElementById('desc-heading-main').textContent = "Sobre o Produto";
+            
+            document.getElementById('desc-heading-usage').textContent = "Como Usar";
+            document.getElementById('icon-usage').className = "fas fa-pump-soap"; // Ícone Frasco/Sabonete
+            
+            document.getElementById('desc-heading-care').textContent = "Precauções";
+            document.getElementById('icon-care').className = "fas fa-exclamation-circle"; // Ícone Alerta
+            
+            // Ajusta botões de compra
+            document.querySelector('label[for="size-select"]').textContent = "Volume / Tamanho:";
+            document.querySelector('label[for="color-select"]').textContent = "Opção / Fragrância:";
+            document.querySelector('.add-to-cart-btn').innerHTML = '<i class="fas fa-shopping-bag"></i> COLOCAR NA SACOLA';
+        }
     }
 
+    // Selects e Lógica de Adicionar
     const colorSelect = document.getElementById('color-select');
     colorSelect.innerHTML = product.colors.map(c => `<option value="${c}">${c}</option>`).join('');
     
@@ -432,7 +458,6 @@ function setupPaymentPage() {
 
 function setupExclusivasPage() {
     // Renomeada no fluxo, mas mantemos o nome para compatibilidade se o HTML ainda chamar assim.
-    // Se no HTML estiver setupAvaliacaoPage, altere o nome aqui.
     const contentDiv = document.getElementById('wizard-content');
     const progressBar = document.getElementById('wiz-progress-bar');
     
@@ -670,7 +695,7 @@ function setupHomePortfolio() {
     `).join('');
 }
 
-// --- 10. HELPERS FINAIS ---
+// --- 10. HELPERS E MENU MOBILE (ATUALIZADO) ---
 
 function scrollSlider(sliderId, direction) {
     const slider = document.getElementById(sliderId);
@@ -771,5 +796,3 @@ function setupCartListeners() {
         input.addEventListener('input', (e) => updateCartItemQuantity(e.currentTarget.dataset.identifier, e.target.value));
     });
 }
-
-
