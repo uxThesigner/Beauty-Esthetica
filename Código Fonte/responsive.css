@@ -1,4 +1,4 @@
-/* responsive.css - BEAUTY ESTHETICA (Versão Final Blindada) */
+/* responsive.css - BEAUTY ESTHETICA (Versão Final: Carrinho Centralizado) */
 
 /* --- DESKTOP (Telas Grandes) --- */
 @media (min-width: 1025px) {
@@ -13,17 +13,13 @@
 /* --- TABLET (max-width: 1024px) --- */
 @media (max-width: 1024px) {
     
-    /* 1. Esconde o menu de texto */
-    .nav-menu {
-        display: none; 
-    }
+    /* 1. Esconde menu texto */
+    .nav-menu { display: none; }
 
-    /* 2. Esconde o hambúrguer (ainda não é mobile) */
-    .header-mobile-toggle {
-        display: none;
-    }
+    /* 2. Esconde hambúrguer */
+    .header-mobile-toggle { display: none; }
     
-    /* 3. Ícones principais (Busca, Carrinho) */
+    /* 3. Ícones fluidos */
     .header-main-icons {
         display: flex;
         align-items: center;
@@ -48,22 +44,18 @@
     .logo { padding-right: 0; border-right: none; }
     .slider-wrapper { padding: 0 10px; }
     
-    /* Grids de 3 colunas */
     .search-page .search-results-grid,
     .love-page .love-results-container .search-results-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* Setas do slider */
     .partner-arrow {
         font-size: 1.5em; 
         opacity: 0.3;
         background-color: rgba(255, 255, 255, 0.5);
         border-radius: 50%;
-        width: 30px; 
-        height: 30px;
-        line-height: 30px; 
-        text-align: center;
+        width: 30px; height: 30px;
+        line-height: 30px; text-align: center;
     }
     .partner-arrow.prev { left: 10px; } 
     .partner-arrow.next { right: 10px; }
@@ -157,38 +149,45 @@
     .desc-main-block { padding: 0 20px; }
     .desc-title { font-size: 1.6em; }
 
-    /* === CARRINHO (CORREÇÃO DE LARGURA/ESTOURO) === */
+    /* === CARRINHO (CORREÇÃO DE ALINHAMENTO/ESTOURO) === */
     
     .cart-content-wrapper {
         grid-template-columns: 1fr; 
         gap: 40px;
-        width: 100%; /* Garante que o container não estoure */
+        width: 100%; 
+        padding: 0; /* Garante que não tenha padding extra empurrando */
     }
 
-    /* 1. TRANSFORMA A TABELA EM BLOCOS (CRUCIAL PARA NÃO ESTOURAR) */
+    /* 1. RESET TOTAL DA TABELA (Resolve o alinhamento à direita) */
     .cart-table, 
     .cart-table tbody {
         display: block;
         width: 100%;
+        margin: 0 !important; /* Remove qualquer margem automática */
+        padding: 0 !important; /* Remove qualquer padding automático */
+        border: none;
     }
 
     .cart-table thead { display: none; }
 
-    /* 2. O Card do Produto */
+    /* 2. O Card do Produto (Centralizado e Ocupando tudo) */
     .cart-table tbody tr {
         display: flex;
         flex-wrap: wrap;
         background: #fff;
         border: 1px solid var(--color-border);
         border-radius: 8px;
-        margin-bottom: 20px;
+        
+        /* Margem inferior apenas, zerando as laterais */
+        margin: 0 0 20px 0; 
+        
         padding: 15px;
         position: relative;
         box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         
-        /* SEGURANÇA CONTRA ESTOURO */
+        /* Garante largura total */
         width: 100%; 
-        box-sizing: border-box; /* Garante que o padding não aumente a largura */
+        box-sizing: border-box; 
     }
 
     .cart-table td {
@@ -197,6 +196,9 @@
         display: flex;
         align-items: center;
         box-sizing: border-box;
+        
+        /* Garante que células não tenham margem esquerda estranha */
+        margin-left: 0; 
     }
 
     /* 3. Topo do Card */
