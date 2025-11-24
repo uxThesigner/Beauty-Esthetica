@@ -2,18 +2,21 @@ const PRODUCTS = [
     // --- SERVIÇOS (Tratamentos) ---
     {
         id: 'serv-limpeza',
-        image: 'Imagens/Servicos/limpeza.jpg', // Lembre de criar essa pasta e por as fotos
+        image: 'Imagens/Servicos/limpeza.jpg', 
         name: 'Limpeza de Pele Profunda 3D',
         price: 150.00,
         rating: 5.0,
         reviews: 84,
         collection: 'Facial',
-        sizes: ['Sessão Única', 'Pacote 3 Sessões'], // Duração/Tipo
+        sizes: ['Sessão Única', 'Pacote 3 Sessões'], 
         material: 'Extração, Hidratação e LEDterapia',
-        colors: ['Padrão', 'Com Peeling'], // Variação
+        colors: ['Padrão', 'Com Peeling'], 
         coupon: 'BEAUTY10',
-        stock: 999, // Serviço "infinito"
-        tags: ['facial', 'limpeza', 'acne', 'skincare', 'tratamento', 'servico']
+        stock: 999, 
+        tags: ['facial', 'limpeza', 'acne', 'skincare', 'tratamento', 'servico'],
+        description: 'Mais do que uma limpeza, um resgate do viço natural da sua pele. Este protocolo 3D atua nas camadas profundas, removendo impurezas, células mortas e o excesso de oleosidade, enquanto devolve a hidratação essencial. Sinta sua pele respirar novamente.',
+        usage: 'Fundamental para manter a saúde cutânea, a limpeza de pele prepara o rosto para receber qualquer outro tratamento. Ideal para realizar mensalmente ou conforme a avaliação da sua Bioesteta.',
+        care: 'Após o procedimento, evite exposição solar direta por 24h e não utilize ácidos ou esfoliantes nos dias seguintes. Mantenha a hidratação e o uso de protetor solar constante. Siga sempre a orientação personalizada da Hillary.'
     },
     {
         id: 'serv-massagem-relax',
@@ -23,12 +26,15 @@ const PRODUCTS = [
         rating: 4.9,
         reviews: 102,
         collection: 'Corporal',
-        sizes: ['50 min', '80 min'], // Tempo
+        sizes: ['50 min', '80 min'], 
         material: 'Óleos Essenciais Aquecidos',
-        colors: ['Lavanda', 'Capim Limão', 'Sem Aroma'], // Aroma
+        colors: ['Lavanda', 'Capim Limão', 'Sem Aroma'], 
         coupon: 'RELAX15',
         stock: 999,
-        tags: ['corporal', 'massagem', 'relaxamento', 'spa', 'servico']
+        tags: ['corporal', 'massagem', 'relaxamento', 'spa', 'servico'],
+        description: 'Um convite ao silêncio e ao reequilíbrio. Através de toques suaves, contínuos e envolventes, combinados com a aromaterapia, esta massagem dissolve as tensões do dia a dia, promovendo um estado profundo de paz mental e relaxamento muscular.',
+        usage: 'Indicada para momentos de alto estresse, ansiedade ou fadiga física. Permita-se parar e reconectar corpo e mente.',
+        care: 'Após a sessão, beba bastante água para auxiliar na eliminação de toxinas. Evite refeições pesadas imediatas e tente manter o ritmo desacelerado pelo resto do dia para prolongar os benefícios.'
     },
     {
         id: 'serv-botox',
@@ -43,7 +49,10 @@ const PRODUCTS = [
         colors: ['Padrão'],
         coupon: 'BEAUTY10',
         stock: 999,
-        tags: ['facial', 'botox', 'rejuvenescimento', 'servico']
+        tags: ['facial', 'botox', 'rejuvenescimento', 'servico'],
+        description: 'Suavidade e prevenção em harmonia. A toxina botulínica atua relaxando a musculatura facial, prevenindo a formação de rugas estáticas e suavizando as linhas de expressão, sem perder a naturalidade dos seus traços.',
+        usage: 'Ideal para prevenir sinais do tempo e tratar rugas na testa, glabela e "pés de galinha".',
+        care: 'Não deitar ou baixar a cabeça por 4 horas após a aplicação. Evitar atividades físicas intensas por 24h. O resultado final aparece em até 15 dias.'
     },
     {
         id: 'serv-drenagem',
@@ -58,7 +67,10 @@ const PRODUCTS = [
         colors: ['Corpo Todo'],
         coupon: 'DETOX20',
         stock: 999,
-        tags: ['corporal', 'drenagem', 'emagrecimento', 'servico']
+        tags: ['corporal', 'drenagem', 'emagrecimento', 'servico'],
+        description: 'A técnica que revoluciona o contorno corporal. Com pressão firme e ritmo acelerado, estimulamos o sistema linfático para eliminar o excesso de fluidos e toxinas, proporcionando uma sensação imediata de leveza e redução de medidas.',
+        usage: 'Perfeita para combater a retenção de líquidos, inchaço e celulite.',
+        care: 'Beba muita água após a sessão. Mantenha uma alimentação balanceada para potencializar os resultados da desintoxicação.'
     },
 
     // --- PRODUTOS (Home Care) ---
@@ -75,7 +87,10 @@ const PRODUCTS = [
         colors: ['Dia/Noite'],
         coupon: 'BEAUTY10',
         stock: 15,
-        tags: ['produto', 'skincare', 'rosto', 'vitamina c', 'anti-idade']
+        tags: ['produto', 'skincare', 'rosto', 'vitamina c', 'anti-idade'],
+        description: 'Um poderoso escudo antioxidante para sua pele. Com alta concentração de Vitamina C estabilizada, este sérum combate os radicais livres, uniformiza o tom da pele e estimula a produção de colágeno, garantindo luminosidade imediata.',
+        usage: 'Aplicar de 3 a 4 gotas no rosto limpo e seco, pela manhã (antes do protetor solar) ou à noite.',
+        care: 'Evitar contato com os olhos. Armazenar em local fresco e longe da luz para evitar oxidação. Em caso de irritação, suspenda o uso.'
     },
     {
         id: 'prod-protetor',
@@ -90,7 +105,10 @@ const PRODUCTS = [
         colors: ['Sem Cor', 'Cor Clara', 'Cor Média', 'Cor Escura'],
         coupon: 'SOL10',
         stock: 50,
-        tags: ['produto', 'skincare', 'protecao', 'sol', 'rosto']
+        tags: ['produto', 'skincare', 'protecao', 'sol', 'rosto'],
+        description: 'Proteção máxima com acabamento invisível. Sua fórmula oil-free controla a oleosidade ao longo do dia enquanto protege contra os danos causados pelos raios UVA/UVB e luz visível.',
+        usage: 'Aplicar abundantemente sobre a pele seca 30 minutos antes da exposição ao sol. Reaplicar a cada 2 horas.',
+        care: 'Uso diário obrigatório, mesmo em dias nublados ou em ambientes fechados.'
     },
     {
         id: 'prod-kit-spa',
@@ -105,7 +123,10 @@ const PRODUCTS = [
         colors: ['Baunilha', 'Rosas'],
         coupon: 'GIFT10',
         stock: 10,
-        tags: ['produto', 'kit', 'presente', 'corpo', 'banho']
+        tags: ['produto', 'kit', 'presente', 'corpo', 'banho'],
+        description: 'Transforme seu banheiro em um santuário. Este kit exclusivo contém tudo o que você precisa para um ritual de autocuidado completo.',
+        usage: 'Acenda a vela, prepare um banho morno com os sais e finalize com a hidratação corporal.',
+        care: 'Mantenha a vela longe de materiais inflamáveis. Uso externo.'
     },
     {
         id: 'serv-depilacao',
@@ -120,6 +141,9 @@ const PRODUCTS = [
         colors: ['Axila', 'Virilha', 'Pernas', 'Buço'],
         coupon: 'LISINHA',
         stock: 999,
-        tags: ['servico', 'depilacao', 'laser', 'corpo', 'pele lisa']
+        tags: ['servico', 'depilacao', 'laser', 'corpo', 'pele lisa'],
+        description: 'Liberdade e conforto. A tecnologia Alexandrite é padrão ouro em depilação, oferecendo resultados definitivos e seguros para diversos fototipos, com sistema de resfriamento que torna a aplicação confortável.',
+        usage: 'Eliminação progressiva dos pelos indesejados.',
+        care: 'Não use pinça ou cera entre as sessões (apenas lâmina). Evite sol na área tratada 7 dias antes e depois.'
     }
 ];
