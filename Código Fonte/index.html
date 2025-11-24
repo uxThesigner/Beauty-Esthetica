@@ -6,18 +6,18 @@
     
     <title>Beauty Esthetica | Cuidados, Beleza e Bem-estar</title>
     <meta name="description" content="Clínica de estética e loja de produtos de beleza. Tratamentos faciais, corporais, massagens e skincare de alta performance.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://beautyesthetica.com.br/">
+    <meta property="og:title" content="Beauty Esthetica | Realce sua Beleza Natural">
+    <meta property="og:description" content="Clínica de estética e loja de produtos de beleza. Tratamentos faciais, corporais e skincare de alta performance.">
+    <meta property="og:image" content="https://beautyesthetica.com.br/Imagens/Banners/herobusca.jpg">
 
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://beautyesthetica.com.br/">
-<meta property="og:title" content="Beauty Esthetica | Realce sua Beleza Natural">
-<meta property="og:description" content="Clínica de estética e loja de produtos de beleza. Tratamentos faciais, corporais e skincare de alta performance.">
-<meta property="og:image" content="https://beautyesthetica.com.br/Imagens/Banners/herobusca.jpg">
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://beautyesthetica.com.br/">
-<meta property="twitter:title" content="Beauty Esthetica | Realce sua Beleza Natural">
-<meta property="twitter:description" content="Clínica de estética e loja de produtos de beleza. Tratamentos faciais, corporais e skincare de alta performance.">
-<meta property="twitter:image" content="https://beautyesthetica.com.br/Imagens/Banners/herobusca.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://beautyesthetica.com.br/">
+    <meta property="twitter:title" content="Beauty Esthetica | Realce sua Beleza Natural">
+    <meta property="twitter:description" content="Clínica de estética e loja de produtos de beleza. Tratamentos faciais, corporais e skincare de alta performance.">
+    <meta property="twitter:image" content="https://beautyesthetica.com.br/Imagens/Banners/herobusca.jpg">
     
     <link rel="icon" href="Imagens/Banners/favicon.png" type="image/png">
     
@@ -87,26 +87,6 @@
             </div>
         </section>
 
-        <section class="partner-slider-section">
-            <div class="container">
-                <h2>PARCEIROS</h2>
-                
-                <div class="partner-slider-wrapper-centralized">
-                    <button class="partner-arrow prev" onclick="scrollSlider('partner-slider-container', -1)">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    
-                    <div class="slider-wrapper"> 
-                        <div class="partner-slider" id="partner-slider-container"></div>
-                    </div>
-                    
-                    <button class="partner-arrow next" onclick="scrollSlider('partner-slider-container', 1)">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div> 
-            </div>
-        </section>
-
         <section class="recent-works-section">
             <div class="container">
                 <h2>RESULTADOS RECENTES</h2>
@@ -114,6 +94,13 @@
                 <div class="slider-wrapper"> 
                     <div class="recent-works-slider" id="home-portfolio-slider"></div>
                 </div>
+            </div>
+        </section>
+
+        <section class="partners-static-section">
+            <div class="container">
+                <h5 class="subtle-title">Nossos Parceiros</h5>
+                <div id="static-partner-grid" class="partners-grid-fixed"></div> 
             </div>
         </section>
 
@@ -130,5 +117,4 @@
     <script src="functions.js" defer></script> 
     <script src="main.js" defer></script>      
 </body>
-
 </html>
