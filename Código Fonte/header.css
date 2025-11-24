@@ -197,7 +197,7 @@
 .search-input:focus { border-bottom-color: #AA9478; }
 
 
-/* --- 6. MOBILE --- */
+/* --- 6. MOBILE MENU & ACCORDION --- */
 .menu-toggle { display: none; cursor: pointer; font-size: 1.5em; color: #DCD8CE; }
 
 .mobile-menu {
@@ -211,6 +211,8 @@
 }
 .mobile-menu.open { transform: translateX(0); }
 
+/* Removemos o display:none do menu toggle no responsive.css, 
+   então aqui controlamos apenas a visibilidade da barra lateral */
 @media (min-width: 1025px) {
     .mobile-menu { display: none !important; }
     .nav-menu { display: block; }
@@ -222,12 +224,97 @@
     .menu-toggle { display: block; }
 }
 
-.menu-header { padding: 20px; display: flex; justify-content: space-between; }
-.close-menu { color: #DCD8CE; font-size: 1.5em; cursor: pointer; }
-.mobile-nav { flex-grow: 1; overflow-y: auto; }
-.mobile-nav li a { 
-    padding: 15px 20px; display: block; 
-    color: #DCD8CE; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); 
+.menu-header { 
+    padding: 20px; 
+    display: flex; 
+    justify-content: flex-end; /* "X" alinhado à direita */
+    align-items: center;
+    height: 60px;
 }
-.menu-footer { padding: 20px; text-align: center; }
+.close-menu { color: #DCD8CE; font-size: 1.5em; cursor: pointer; }
+
+/* Estilo da Lista Principal */
+.mobile-nav { flex-grow: 1; overflow-y: auto; padding-top: 20px; }
+.mobile-nav ul { list-style: none; padding: 0; margin: 0; }
+
+.mobile-group {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Links Diretos (Sem Dropdown) e Botões Pai */
+.mobile-direct-link,
+.mobile-dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 25px;
+    background: none;
+    border: none;
+    
+    /* Tipografia do PAI */
+    color: #DCD8CE;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em; /* Maior */
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+/* Quando estiver ATIVO (Aberto) */
+.mobile-dropdown-toggle.active {
+    color: #AA9478; /* Dourado */
+}
+.mobile-dropdown-toggle.active i {
+    transform: rotate(180deg); /* Gira a setinha */
+}
+
+.mobile-dropdown-toggle i {
+    font-size: 0.8em;
+    transition: transform 0.3s;
+}
+
+/* --- SUB-MENU (DROPDOWN) --- */
+.mobile-dropdown-content {
+    display: none; /* Escondido por padrão */
+    background-color: rgba(0, 0, 0, 0.1); /* Fundo um pouco mais escuro */
+    padding-bottom: 10px;
+}
+
+.mobile-dropdown-content.open {
+    display: block; /* Aparece quando tem a classe open */
+    animation: slideDown 0.3s ease;
+}
+
+/* Links do Filho (Sub-itens) */
+.mobile-dropdown-content li a {
+    display: block;
+    padding: 12px 25px 12px 40px; /* Mais recuo à esquerda */
+    color: #DCD8CE;
+    text-decoration: none;
+    
+    /* Tipografia do FILHO (Diferente) */
+    font-size: 0.9em; /* Menor */
+    font-weight: 300; /* Mais fino */
+    opacity: 0.8;
+    text-transform: capitalize; /* Apenas primeira letra maiúscula */
+    letter-spacing: 0.5px;
+    border-bottom: none;
+}
+
+.mobile-dropdown-content li a:hover {
+    color: #AA9478;
+    opacity: 1;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-footer { padding: 20px; text-align: center; margin-top: auto; }
+.menu-footer p { color: #666; font-size: 0.8em; margin-bottom: 10px;}
 .menu-footer .social-icons a { color: #DCD8CE; font-size: 1.4em; margin: 0 10px; }
