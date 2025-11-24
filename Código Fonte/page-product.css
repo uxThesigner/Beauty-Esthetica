@@ -1,5 +1,6 @@
-/* --- PÁGINA DE DETALHE DO PRODUTO (produtos.html) --- */
+/* page-product.css - BEAUTY ESTHETICA (Versão Final: Editorial) */
 
+/* --- LAYOUT GERAL --- */
 .product-detail-main {
     padding-top: 60px;
     padding-bottom: 80px;
@@ -7,11 +8,11 @@
 
 .product-detail-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas de tamanho igual */
+    grid-template-columns: 1fr 1fr; /* Duas colunas iguais */
     gap: 60px;
 }
 
-/* --- Galeria (Esquerda) --- */
+/* --- GALERIA DE FOTOS (ESQUERDA) --- */
 .product-gallery {
     display: flex;
     flex-direction: column;
@@ -20,12 +21,13 @@
 
 .main-photo-container {
     width: 100%;
-    padding-bottom: 100%; /* Força proporção 1:1 */
+    padding-bottom: 100%; /* Proporção Quadrada 1:1 */
     height: 0;
     position: relative;
     overflow: hidden;
     border: 1px solid var(--color-border);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
 }
 
 .main-photo-container img {
@@ -39,21 +41,21 @@
 
 .thumbnail-gallery {
     display: grid;
-    /* 5 colunas como pedido */
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr); /* 5 miniaturas */
     gap: 10px;
 }
 
 .thumbnail-item {
     width: 100%;
-    padding-bottom: 100%; /* Força proporção 1:1 */
+    padding-bottom: 100%;
     height: 0;
     position: relative;
     overflow: hidden;
-    border: 2px solid var(--color-border);
+    border: 2px solid transparent;
     cursor: pointer;
     opacity: 0.7;
-    transition: opacity 0.2s, border-color 0.2s;
+    transition: all 0.2s;
+    border-radius: 4px;
 }
 
 .thumbnail-item:hover,
@@ -71,13 +73,35 @@
     object-fit: cover;
 }
 
+/* --- INFORMAÇÕES (DIREITA) --- */
 
-/* --- Informações (Direita) --- */
+/* Breadcrumb (Navegação no topo) */
+.breadcrumb-nav {
+    font-size: 0.85em;
+    color: #888;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.breadcrumb-nav a {
+    text-decoration: none;
+    color: #888;
+    transition: color 0.2s;
+}
+.breadcrumb-nav a:hover {
+    color: var(--color-accent);
+}
+.breadcrumb-nav .current-item {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
 .product-info-details h1 {
     font-size: 2.2em;
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 10px;
+    color: var(--color-primary);
 }
 
 .product-meta-detail {
@@ -121,21 +145,22 @@
     font-size: 0.95em;
     color: #333;
     margin-bottom: 25px;
-    border-top: 1px solid var(--color-light-gray);
+    border-top: 1px solid var(--color-border);
     padding-top: 20px;
 }
 
+/* Formulário de Compra */
 #add-to-cart-form {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+    flex-wrap: wrap;
     gap: 20px;
-    align-items: flex-end; /* Alinha labels e inputs */
+    align-items: flex-end;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    min-width: 100px; /* Largura mínima para cor/tamanho */
+    min-width: 120px;
 }
 
 .form-group label {
@@ -143,6 +168,7 @@
     font-weight: 600;
     margin-bottom: 5px;
     text-transform: uppercase;
+    color: #666;
 }
 
 .form-group select,
@@ -151,29 +177,35 @@
     border: 1px solid var(--color-border);
     font-size: 1em;
     font-family: 'Poppins', sans-serif;
+    color: var(--color-primary);
+    border-radius: 4px;
 }
 
 .form-group input[type="number"] {
-    width: 80px; /* Largura fixa para quantidade */
+    width: 80px;
 }
 
 .add-to-cart-btn {
-    width: 100%; /* Botão ocupa a largura total */
+    width: 100%;
     padding: 15px 30px;
     font-size: 1.1em;
-    margin-top: 10px;
+    margin-top: 15px;
+    border-radius: 4px;
 }
 
 .form-message-success {
     color: var(--color-accent);
     font-weight: 600;
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
     font-size: 0.9em;
+    text-align: center;
 }
+
 
 /* =========================================
    NOVA SEÇÃO DE DESCRIÇÃO (EDITORIAL)
+   Substitui a antiga "Complete sua Coleção"
    ========================================= */
 
 .product-description-section {
@@ -255,7 +287,7 @@
     color: #666;
 }
 
-/* Responsivo */
+/* Responsivo Mobile */
 @media (max-width: 768px) {
     .desc-details-grid {
         grid-template-columns: 1fr; /* Coluna única no celular */
@@ -267,29 +299,8 @@
     .desc-title {
         font-size: 1.6em;
     }
+    .product-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
-
-/* Breadcrumb (Navegação no topo do produto) */
-.breadcrumb-nav {
-    font-size: 0.85em;
-    color: #888;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.breadcrumb-nav a {
-    text-decoration: none;
-    color: #888;
-    transition: color 0.2s;
-}
-
-.breadcrumb-nav a:hover {
-    color: var(--color-accent); /* Fica dourado ao passar o mouse */
-}
-
-.breadcrumb-nav .current-item {
-    color: var(--color-primary); /* Cor escura para onde o usuário está agora */
-    font-weight: 600;
-}
-
