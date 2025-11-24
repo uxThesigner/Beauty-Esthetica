@@ -172,31 +172,101 @@
     font-size: 0.9em;
 }
 
-/* --- Seção "Complete sua Coleção" --- */
-.related-products-section {
+/* =========================================
+   NOVA SEÇÃO DE DESCRIÇÃO (EDITORIAL)
+   ========================================= */
+
+.product-description-section {
     padding: 80px 0;
-    border-top: 1px solid var(--color-light-gray);
+    background-color: #FAFAFA; /* Fundo leve para destacar */
+    border-top: 1px solid var(--color-border);
     margin-top: 60px;
 }
 
-.related-products-section h2 {
+.desc-main-block {
     text-align: center;
-    margin-bottom: 40px; 
-    font-family: 'Poppins', Arial, sans-serif;
-    font-weight: 900; 
-    font-size: 2em; 
-    color: var(--color-primary); 
+    max-width: 800px;
+    margin: 0 auto 50px auto;
 }
 
-/* Ajusta o carrossel de produtos para usar os cards corretos */
-.related-products-section .product-slider {
-    gap: 20px;
+.desc-title {
+    font-family: 'Poppins', serif;
+    font-size: 2em;
+    color: var(--color-primary);
+    margin-bottom: 25px;
+    font-weight: 400;
+    letter-spacing: 1px;
 }
 
-/* Sobrescreve o tamanho do card de parceiro para o card de produto */
-.related-products-section .product-card-link {
-    flex: 0 0 220px; /* Um pouco maior que o card da busca (5 colunas) */
-    min-width: 220px;
+.desc-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    font-weight: 300;
+}
+
+.desc-separator {
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-accent); /* Dourado */
+    margin: 0 auto 50px auto;
+}
+
+.desc-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.desc-column {
+    background: #fff;
+    padding: 40px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+.desc-icon-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.desc-icon-title i {
+    font-size: 1.5em;
+    color: var(--color-accent);
+}
+
+.desc-icon-title h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.desc-text-small {
+    font-size: 0.95em;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .desc-details-grid {
+        grid-template-columns: 1fr; /* Coluna única no celular */
+        gap: 30px;
+    }
+    .desc-main-block {
+        padding: 0 20px;
+    }
+    .desc-title {
+        font-size: 1.6em;
+    }
 }
 
 /* Breadcrumb (Navegação no topo do produto) */
@@ -222,3 +292,4 @@
     color: var(--color-primary); /* Cor escura para onde o usuário está agora */
     font-weight: 600;
 }
+
