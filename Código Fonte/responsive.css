@@ -1,31 +1,29 @@
-/* responsive.css - BEAUTY ESTHETICA (Versão Final: Logo + Cards Corrigidos) */
+/* responsive.css - BEAUTY ESTHETICA (Versão Final Otimizada: Carrinho em Cards) */
 
-/* Força o menu desktop em telas grandes */
+/* --- DESKTOP (Telas Grandes) --- */
 @media (min-width: 1025px) {
     .nav-menu {
         display: flex !important;
     }
-    .header-mobile-toggle { /* Esconde o container do ícone hambúrguer */
+    .header-mobile-toggle { 
         display: none !important; 
     }
 }
 
-/* === TABLET (max-width: 1024px) ===
-   Ajuste para esconder menu de texto e manter ícones
-*/
+/* --- TABLET (max-width: 1024px) --- */
 @media (max-width: 1024px) {
     
-    /* 1. Esconde o menu de navegação de texto */
+    /* 1. Esconde o menu de texto, mantém ícones */
     .nav-menu {
         display: none; 
     }
 
-    /* 2. Esconde o ícone de hambúrguer (pois será controlado pelo header.css ou aparecerá só no mobile se preferir) */
+    /* 2. Esconde o hambúrguer (ainda não é mobile) */
     .header-mobile-toggle {
         display: none;
     }
     
-    /* 3. Ícones principais (Busca, Carrinho) visíveis */
+    /* 3. Ícones principais (Busca, Carrinho) visíveis e fluidos */
     .header-main-icons {
         display: flex;
         align-items: center;
@@ -34,7 +32,7 @@
         justify-content: flex-end; 
     }
 
-    /* 4. Ajusta layout */
+    /* 4. Ajustes de Layout */
     .header-content {
         gap: 20px;
     }
@@ -48,32 +46,20 @@
         justify-content: flex-end; 
     }
     
-    /* 5. Barra de busca fluida */
-    .search-box-container {
+    .search-box-container, 
+    .search-input {
         flex-grow: 1; 
         max-width: none; 
+        width: 100%;
     }
-    .search-input {
-        width: 100%; 
-        max-width: none; 
-    }
-    .search-input:focus {
-        max-width: none;
-    }
+    .search-input:focus { max-width: none; }
 
-    .logo {
-        padding-right: 0;
-        border-right: none;
-    }
+    .logo { padding-right: 0; border-right: none; }
     
-    .slider-wrapper {
-        padding: 0 10px; 
-    }
+    .slider-wrapper { padding: 0 10px; }
     
     /* Grids de 3 colunas */
-    .search-page .search-results-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    .search-page .search-results-grid,
     .love-page .love-results-container .search-results-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -84,165 +70,186 @@
         opacity: 0.3;
         background-color: rgba(255, 255, 255, 0.5);
         border-radius: 50%;
-        width: 30px;
+        width: 30px; 
         height: 30px;
-        line-height: 30px;
+        line-height: 30px; 
         text-align: center;
-    }
-    .product-page-header .partner-arrow {
-         background-color: rgba(0, 0, 0, 0.05);
     }
     .partner-arrow.prev { left: 10px; } 
     .partner-arrow.next { right: 10px; }
 }
 
 
-/* === MOBILE (max-width: 768px) === */
+/* --- MOBILE (max-width: 768px) --- */
 @media (max-width: 768px) {
+    
+    /* === HEADER & MENU === */
     .header-content {
         padding: 10px 0;
-        /* Layout Grid: Logo | Busca | Hambúrguer */
+        /* Grid: Logo | Busca | Hambúrguer */
         display: grid;
         grid-template-columns: auto 1fr auto; 
         gap: 10px; 
     }
     
-    /* --- CORREÇÃO DA LOGO --- */
+    /* Garante que a logo apareça */
     .logo-img {
         display: block !important;
-        height: 22px; /* Altura ajustada para mobile */
+        height: 22px; 
         width: auto;
     }
 
-    /* Posicionamento dos elementos no Grid */
-    .nav-left {
-        grid-column: 1 / 2; /* Coluna 1 */
-        gap: 0;
-    }
+    .nav-left { grid-column: 1 / 2; gap: 0; }
 
     .search-box-container {
         display: block;
-        grid-column: 2 / 3; /* Coluna 2 (Meio) */
+        grid-column: 2 / 3; 
         width: 100%;
         max-width: none;
     }
 
     .header-mobile-toggle {
-        display: block !important; /* Garante que o hambúrguer apareça */
-        grid-column: 3 / 4; /* Coluna 3 */
+        display: block !important; 
+        grid-column: 3 / 4; 
     }
-    .menu-toggle {
-        display: block;
-    }
+    .menu-toggle { display: block; }
 
-    /* Ícones do desktop somem da barra (vão para dentro do menu hambúrguer) */
-    .header-main-icons {
-        display: contents; 
-    }
-    .header-main-icons .cart-icon-link {
-        display: none; 
-    }
+    /* Ícones desktop somem (vão para o menu lateral) */
+    .header-main-icons { display: contents; }
+    .header-main-icons .cart-icon-link { display: none; }
 
-    .search-input {
-        max-width: none;
-    }
+    /* === TIPOGRAFIA & LAYOUT GERAL === */
+    .search-hero-banner h1,
+    .product-info-details h1 { font-size: 1.8em; }
+    .current-price-detail { font-size: 2em; }
+    .page-title { font-size: 2em; }
 
-    /* Ajustes de Seções Gerais */
     .hero-banner-video {
         min-height: 50vh;
         padding-top: 60px;
     }
 
-    .product-slider {
-        gap: 20px;
-    }
-    
-    .related-products-section .product-card-link {
-        flex: 0 0 45%; 
-        min-width: 45%; 
-        max-width: 45%;
-    }
-
-    .partner-card-link {
-        flex: 0 0 100px; 
-        min-width: 100px;
-    }
-    .partner-image-container {
-        max-width: 100px;
-    }
-    
+    /* Ajuste Footer */
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 30px;
         text-align: center;
     }
-    .footer-column .social-icons {
-        justify-content: center;
-    }
-    .footer-column.logo-column {
-        text-align: center; 
-    }
+    .footer-column .social-icons { justify-content: center; }
+    .footer-column.logo-column { text-align: center; }
     
-    /* --- CORREÇÃO DE ESTOURO LATERAL (HORIZONTAL SCROLL) --- */
+    /* === LISTAGENS DE PRODUTOS === */
     
-    /* 1. Remove a largura mínima fixa de 220px dos cards no mobile */
-    /* Isso permite que os cards encolham para caber nas 2 colunas */
+    /* Remove largura mínima fixa para evitar scroll lateral */
     .product-card-link {
         min-width: 0 !important; 
         width: 100%;
     }
 
-    /* 2. Reduz o espaçamento entre os cards (30px é muito para celular) */
+    /* Grid de 2 colunas com gap menor */
     .search-page .search-results-grid,
     .love-page .love-results-container .search-results-grid,
     .promo-grid-container {
-        grid-template-columns: repeat(2, 1fr); /* Garante 2 colunas */
-        gap: 15px; /* Gap menor para caber na tela */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px; 
     }
     
-    /* Tipografia Mobile */
-    .search-hero-banner h1 {
-        font-size: 1.8em;
+    .product-slider { gap: 20px; }
+    
+    .related-products-section .product-card-link {
+        flex: 0 0 45%; 
+        min-width: 45%; 
     }
 
-    /* --- Responsivo da Página de Produto --- */
+    /* === PÁGINA DE PRODUTO & EDITORIAL === */
     .product-detail-grid {
         grid-template-columns: 1fr; 
         gap: 40px;
     }
-    .product-info-details h1 {
-        font-size: 1.8em;
+    
+    .desc-details-grid {
+        grid-template-columns: 1fr; /* Coluna única no editorial */
+        gap: 30px;
     }
-    .current-price-detail {
-        font-size: 2em;
-    }
+    .desc-main-block { padding: 0 20px; }
+    .desc-title { font-size: 1.6em; }
 
-    /* --- Responsivo do Carrinho --- */
+    /* === CARRINHO (TRANSFORMAÇÃO TABELA -> CARDS) === */
+    
     .cart-content-wrapper {
         grid-template-columns: 1fr; 
-        gap: 50px;
+        gap: 40px;
     }
 
-    .page-title {
-        font-size: 2em;
-    }
-    
-    .cart-table .th-product {
-        width: auto;
-    }
+    /* 1. Esconde o cabeçalho da tabela */
+    .cart-table thead { display: none; }
 
-    .product-info-cell {
-        flex-direction: column; 
-        align-items: flex-start;
-        gap: 10px;
+    /* 2. Transforma linha em Card */
+    .cart-table tbody tr {
+        display: flex;
+        flex-wrap: wrap;
+        background: #fff;
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        margin-bottom: 20px;
+        padding: 15px;
+        position: relative;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     }
 
     .cart-table td {
-        padding: 10px 5px;
-        font-size: 0.9em;
+        border-bottom: none;
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
     }
-    
-    /* --- Responsivo Checkout de Pagamento --- */
+
+    /* 3. Topo do Card: Imagem + Nome */
+    .cart-table td.product-info-cell {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+        margin-bottom: 10px;
+        flex-direction: row;
+        gap: 15px;
+    }
+    .cart-product-img { width: 60px; height: 60px; }
+
+    /* 4. Meio do Card: Cor e Tamanho (Lado a Lado) */
+    .cart-table td:nth-child(2), 
+    .cart-table td:nth-child(3) {
+        width: 50%;
+        font-size: 0.9em;
+        color: #666;
+    }
+    /* Labels artificiais */
+    .cart-table td:nth-child(2)::before { content: "Var: "; font-weight: 600; margin-right: 5px; color: var(--color-primary); }
+    .cart-table td:nth-child(3)::before { content: "Tam: "; font-weight: 600; margin-right: 5px; color: var(--color-primary); }
+
+    /* 5. Base do Card: Quantidade e Preço */
+    .cart-table td:nth-child(4) { /* Qtd */
+        width: auto;
+        margin-right: auto; 
+        margin-top: 5px;
+    }
+    .cart-table td:nth-child(5) { /* Preço */
+        width: auto;
+        margin-top: 5px;
+        font-size: 1.1em;
+        font-weight: 700;
+        color: var(--color-accent);
+    }
+
+    /* 6. Lixeira (Topo Direito) */
+    .cart-table td:last-child {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: auto;
+        padding: 0;
+    }
+
+    /* === CHECKOUT === */
     .checkout-grid {
         grid-template-columns: 1fr;
         gap: 30px;
