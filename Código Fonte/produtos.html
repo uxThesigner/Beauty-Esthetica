@@ -97,24 +97,36 @@
             </div>
         </div>
 
-        <section class="related-products-section">
+<section class="product-description-section">
             <div class="container">
-                <h2>COMPLETE SUA COLEÇÃO</h2>
                 
-                <div class="partner-slider-wrapper-centralized" style="max-width: 1200px;">
-                    <button class="partner-arrow prev" onclick="scrollSlider('related-products-slider', -1)">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    
-                    <div class="slider-wrapper"> 
-                        <div class="product-slider" id="related-products-slider">
-                        </div>
-                    </div>
-                    
-                    <button class="partner-arrow next" onclick="scrollSlider('related-products-slider', 1)">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+                <div class="desc-main-block">
+                    <h2 class="desc-title" id="desc-heading-main">Sobre</h2>
+                    <p class="desc-text" id="desc-content-main">
+                        Carregando informações...
+                    </p>
                 </div>
+
+                <div class="desc-separator"></div>
+
+                <div class="desc-details-grid">
+                    <div class="desc-column">
+                        <div class="desc-icon-title">
+                            <i class="fas fa-sparkles" id="icon-usage"></i>
+                            <h3 id="desc-heading-usage">Benefícios</h3>
+                        </div>
+                        <p class="desc-text-small" id="desc-content-usage">...</p>
+                    </div>
+
+                    <div class="desc-column">
+                        <div class="desc-icon-title">
+                            <i class="fas fa-user-md" id="icon-care"></i>
+                            <h3 id="desc-heading-care">Orientação Profissional</h3>
+                        </div>
+                        <p class="desc-text-small" id="desc-content-care">...</p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -131,5 +143,6 @@
     
     <script src="functions.js" defer></script> <script src="main.js" defer></script>      </body>
 </html>
+
 
 
