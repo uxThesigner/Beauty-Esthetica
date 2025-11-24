@@ -1,4 +1,4 @@
-/* responsive.css - BEAUTY ESTHETICA (Versão Final com Correção da Logo) */
+/* responsive.css - BEAUTY ESTHETICA (Versão Final: Logo + Cards Corrigidos) */
 
 /* Força o menu desktop em telas grandes */
 @media (min-width: 1025px) {
@@ -21,7 +21,6 @@
     }
 
     /* 2. Esconde o ícone de hambúrguer (pois será controlado pelo header.css ou aparecerá só no mobile se preferir) */
-    /* Se quiser que o hambúrguer apareça já no tablet, mude para display: block */
     .header-mobile-toggle {
         display: none;
     }
@@ -109,7 +108,6 @@
     }
     
     /* --- CORREÇÃO DA LOGO --- */
-    /* Removemos as regras que escondiam a logo. Agora ela é única. */
     .logo-img {
         display: block !important;
         height: 22px; /* Altura ajustada para mobile */
@@ -185,12 +183,21 @@
         text-align: center; 
     }
     
-    /* Grids de 2 colunas no mobile */
-    .search-page .search-results-grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* --- CORREÇÃO DE ESTOURO LATERAL (HORIZONTAL SCROLL) --- */
+    
+    /* 1. Remove a largura mínima fixa de 220px dos cards no mobile */
+    /* Isso permite que os cards encolham para caber nas 2 colunas */
+    .product-card-link {
+        min-width: 0 !important; 
+        width: 100%;
     }
-    .love-page .love-results-container .search-results-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+    /* 2. Reduz o espaçamento entre os cards (30px é muito para celular) */
+    .search-page .search-results-grid,
+    .love-page .love-results-container .search-results-grid,
+    .promo-grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Garante 2 colunas */
+        gap: 15px; /* Gap menor para caber na tela */
     }
     
     /* Tipografia Mobile */
