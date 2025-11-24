@@ -341,30 +341,36 @@ function setupProductPage() {
     setupInternalBannerCarousel('internal-banner-carousel-produto'); 
 }
 
-// --- 6. PARCEIROS ---
+// --- 6. PARCEIROS (VERSÃO GRID FIXO DE 5) ---
 
-function renderPartnerCard(partner) {
+function renderPartnerCardSimple(partner) {
     return `
-        <a href="${partner.link}" target="_blank" class="partner-card-link">
+        <a href="${partner.link}" class="partner-card-link" title="${partner.nickname}">
             <div class="partner-card">
                 <div class="partner-image-container">
                     <img src="Imagens/Fotos Parceiros/${partner.image}" alt="${partner.name}" loading="lazy">
                 </div>
                 <div class="partner-info">
                     <h3>${partner.name}</h3>
-                    <p class="partner-nickname">${partner.nickname}</p>
-                </div>
+                    <p class="partner-nickname">${partner.nickname}</p> </div>
             </div>
         </a>
     `;
 }
 
-function setupPartnerContent(sliderId) {
-    const slider = document.getElementById(sliderId);
-    if (slider && typeof PARTNERS !== 'undefined') {
-        slider.innerHTML = PARTNERS.map(renderPartnerCard).join('');
-    }
+function setupPartnerContent() {
+    // Procura o novo container fixo
+    const gridContainer = document.getElementById('static-partner-grid');
+    
+    // Se não achar (ou se o array de parceiros não existir), para.
+    if (!gridContainer || typeof PARTNERS === 'undefined') return;
+
+    // Pega APENAS OS PRIMEIROS 5 parceiros
+    const top5Partners = PARTNERS.slice(0, 5);
+
+    gridContainer.innerHTML = top5Partners.map(renderPartnerCardSimple).join('');
 }
+
 
 // --- 7. WHATSAPP CHECKOUT ---
 
@@ -727,6 +733,4 @@ function setupCartListeners() {
     document.querySelectorAll('.cart-quantity-input').forEach(input => {
         input.addEventListener('input', (e) => updateCartItemQuantity(e.currentTarget.dataset.identifier, e.target.value));
     });
-
 }
-
